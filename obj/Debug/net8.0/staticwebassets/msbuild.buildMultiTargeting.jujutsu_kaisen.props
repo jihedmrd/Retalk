@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\jujutsu_kaisen.props" />
+</Project>

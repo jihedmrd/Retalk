@@ -1,0 +1,6 @@
+@jujutsu_kaisen_HostAddress = http://localhost:5044
+
+GET {{jujutsu_kaisen_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
