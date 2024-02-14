@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("jujutsu_kaisen")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0628072661760ff407a6e8467a1a8679c798015")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d0348cdf664be991808585efbcbb0b75712f122")]
 [assembly: System.Reflection.AssemblyProductAttribute("jujutsu_kaisen")]
 [assembly: System.Reflection.AssemblyTitleAttribute("jujutsu_kaisen")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

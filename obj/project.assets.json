@@ -5173,7 +5173,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\chadi\\.nuget\\packages\\": {}
+    "C:\\Users\\jihed\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -5181,11 +5181,11 @@
       "projectUniqueName": "C:\\Users\\jihed\\source\\repos\\jujutsu_kaisen\\jujutsu_kaisen\\jujutsu_kaisen.csproj",
       "projectName": "jujutsu_kaisen",
       "projectPath": "C:\\Users\\jihed\\source\\repos\\jujutsu_kaisen\\jujutsu_kaisen\\jujutsu_kaisen.csproj",
-      "packagesPath": "C:\\Users\\chadi\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\jihed\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\jihed\\source\\repos\\jujutsu_kaisen\\jujutsu_kaisen\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\chadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jihed\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

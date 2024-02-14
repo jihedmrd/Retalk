@@ -38,12 +38,59 @@ namespace jujutsu_kaisen.Controllers
             return character;
         }
         [HttpPost]
-        public  async Task<ActionResult<Character>>PostCharacter(Character character)
+        public async Task<ActionResult<Character>> PostCharacter(Character character)
         {
-            _dbContext.Characters.Add(character);  
+            _dbContext.Characters.Add(character);
             await _dbContext.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetCharacters), new {id=character.Id},character);
+            return CreatedAtAction(nameof(GetCharacters), new { id = character.Id }, character);
+        }
+        [HttpPut]
+        public async Task<ActionResult<Character>> PutCharacter(int id, Character character)
+        {
+            if (id != character.Id)
+            {
+                return BadRequest();
+            }
+            _dbContext.Entry(character).State = EntityState.Modified;
+
+            try
+            {
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CharacterAvailable(id))
+                {
+                    return NotFound(nameof(character));
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return Ok();
         }
 
+        private bool CharacterAvailable(int id)
+        {
+            return (_dbContext.Characters?.Any(x => x.Id == id)).GetValueOrDefault();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteCharacters(int id )
+        {
+            if (_dbContext.Characters == null)
+            {
+                return NotFound();
+            }
+            var characters = await _dbContext.Characters.FindAsync(id);
+            if(characters != null)
+            {
+                return NotFound();
+            }
+            _dbContext.Characters.Remove(characters);
+            await _dbContext.SaveChangesAsync();
+            return Ok();
+        }
     }
     }
