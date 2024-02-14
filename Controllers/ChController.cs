@@ -1,4 +1,4 @@
-﻿using jujutsu_kaisen.Model;
+using jujutsu_kaisen.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +24,7 @@ namespace jujutsu_kaisen.Controllers
             return await _dbContext.Characters.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Character>> GetCharacters(int id)
+        public async Task<ActionResult<Character>> GetCharacter(int id)
         {
             if (_dbContext.Characters == null)
             {
@@ -44,8 +44,8 @@ namespace jujutsu_kaisen.Controllers
             await _dbContext.SaveChangesAsync();
             return CreatedAtAction(nameof(GetCharacters), new { id = character.Id }, character);
         }
-        [HttpPut]
-        public async Task<ActionResult<Character>> PutCharacter(int id, Character character)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutCharacter(int id, Character character)
         {
             if (id != character.Id)
             {
@@ -71,26 +71,23 @@ namespace jujutsu_kaisen.Controllers
             return Ok();
         }
 
-        private bool CharacterAvailable(int id)
-        {
-            return (_dbContext.Characters?.Any(x => x.Id == id)).GetValueOrDefault();
-        }
+            private bool CharacterAvailable(int id)
+            {
+                return (_dbContext.Characters?.Any(x => x.Id == id)).GetValueOrDefault();
+            }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteCharacters(int id )
+        public async Task<ActionResult> DeleteCharacter(int id )
         {
-            if (_dbContext.Characters == null)
+           
+            var character = await _dbContext.Characters.FindAsync(id);
+            if(character == null)
             {
                 return NotFound();
             }
-            var characters = await _dbContext.Characters.FindAsync(id);
-            if(characters != null)
-            {
-                return NotFound();
-            }
-            _dbContext.Characters.Remove(characters);
+            _dbContext.Characters.Remove(character);
             await _dbContext.SaveChangesAsync();
             return Ok();
         }
     }
-    }
+}
